@@ -1,0 +1,69 @@
+﻿<Window x:Class="亚马逊店铺管理.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:亚马逊店铺管理"
+        mc:Ignorable="d"
+        xmlns:cefSharpWPF="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" AllowsTransparency="True"  >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF031D31" Offset="0"/>
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF0C151B" Offset="0.617"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Background="#FF1A2A37" BorderBrush="#FF7C7C7C">
+            <Grid>
+                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges"  HorizontalAlignment="Right" Margin="10">
+                    <WrapPanel Width="130">
+                        <Button Content="退出"  FontSize="14"  Click="Button_Click" Width="130" Cursor="Hand" Background="#FF282828" BorderBrush="{x:Null}" Foreground="#DD060606" FontStretch="Expanded"/>
+                    </WrapPanel>
+
+
+                </materialDesign:PopupBox>
+                <StackPanel
+      Orientation="Horizontal">
+                   
+                    <TextBlock  FontSize="16"      VerticalAlignment="Center"        Margin="40 0 0 0">
+      跨境电商管理系统
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </materialDesign:ColorZone>
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="326*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FF15212B">
+                <Image Source="透明.png" OpacityMask="#FF15212B" />
+            </Grid>
+            <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Background="#FF15212B" BorderBrush="#FFA8A8A8">
+                <StackPanel x:Name="Menu" Margin="10" />
+            </ScrollViewer>
+            <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+
+            </StackPanel>
+
+        </Grid>
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <TextBox DockPanel.Dock="Top"   TextWrapping="Wrap"    VerticalAlignment="Stretch"    MinWidth="280"    AcceptsReturn="True"    VerticalScrollBarVisibility="Auto"    SpellCheck.IsEnabled="True"    materialDesign:HintAssist.Hint="请输入要采集地址"    Height="80" Foreground="White" Background="{x:Null}">
+              
+            </TextBox>
+            <cefSharpWPF:ChromiumWebBrowser x:Name="Browser" DockPanel.Dock="Top" Address="http://www.bing.com"></cefSharpWPF:ChromiumWebBrowser>
+
+        </DockPanel>
+    </Grid>
+</Window>
